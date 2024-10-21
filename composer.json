@@ -1,5 +1,5 @@
 {
-    "name": "jordi/phptinkering",
+    "name": "nerea/phptinkering",
     "description": "Exercici PHPtinkering",
     "type": "project",
     "require": {
@@ -16,8 +16,8 @@
     },
     "authors" : [
         {
-            "name": "Jordi Vega",
-            "email": "jordivega@iesebre.com"
+            "name": "Nerea Piñol",
+            "email": "nereapinol@iesebre.com"
         }
     ]
 }
