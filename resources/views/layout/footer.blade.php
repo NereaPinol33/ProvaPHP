@@ -1,4 +1,4 @@
-<footer aria-labelledby="footer-heading" class="bg-green-700 text-white py-3">
+<footer aria-labelledby="footer-heading" class="text-white py-3 text-shadow spooky-font">
     <div class="container mx-auto px-4">
         <div class="text-center text-sm">
             <p>Nerea. All rights reserved.</p>

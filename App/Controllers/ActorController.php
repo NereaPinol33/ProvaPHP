@@ -35,7 +35,7 @@ class ActorController
             ];
 
             Actor::create($data);
-            header('Location: /actors');
+            header('Location: /actores');
         } catch (Exception $e) {
             // Log the error
             error_log($e->getMessage());
@@ -69,7 +69,7 @@ class ActorController
             ];
 
             Actor::update($id, $data);
-            header('Location: /actors');
+            header('Location: /actores');
         } catch (Exception $e) {
             // Log the error
             error_log($e->getMessage());
@@ -96,7 +96,7 @@ class ActorController
     {
         try {
             Actor::delete($id);
-            header('Location: /actors');
+            header('Location: /actores');
         } catch (Exception $e) {
             // Log the error
             error_log($e->getMessage());

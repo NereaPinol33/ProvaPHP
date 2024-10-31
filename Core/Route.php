@@ -39,10 +39,10 @@ class Route
         }
 
         //Films
-        if ($uri === '/films') {
+        if ($uri === '/peliculas') {
             $controller = 'App\Controllers\FilmController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Films'];
+            $data  = ['title' => 'Películas'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
             $content = $controllerInstance->index();
@@ -52,10 +52,10 @@ class Route
         }
 
         //create
-        if ($parts[0] === 'create') {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'create') {
             $controller = 'App\Controllers\FilmController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Films'];
+            $data  = ['title' => 'Añadir película'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
             $content = $controllerInstance->create();
@@ -65,7 +65,7 @@ class Route
         }
 
         //Utilitzant POST guardem
-        if ($parts[0] === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\FilmController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -76,13 +76,13 @@ class Route
 
 
         //delete en GET  mirem que sigue delete en la id
-        if ($parts[0] === 'delete' && isset($parts[1])) {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'delete' && isset($parts[2])) {
             $controller = 'App\Controllers\FilmController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Films'];
+            $data  = ['title' => 'Borrar película'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
-            return $controllerInstance->delete($parts[1]);
+            return $controllerInstance->delete($parts[2]);
             $footer = $this->getViewContent('../resources/views/layout/footer.blade.php');
             echo $footer;
             return;
@@ -90,7 +90,7 @@ class Route
 
 
         //destroy en POST
-        if ($parts[0] === 'destroy' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'destroy' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\FilmController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -99,20 +99,20 @@ class Route
 
 
         //edit en GET
-        if ($parts[0] === 'edit' && $parts[1]) {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'edit' && $parts[2]) {
             $controller = 'App\Controllers\FilmController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Films'];
+            $data  = ['title' => 'Editar película'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
-            $content = $controllerInstance->edit($parts[1]);
+            $content = $controllerInstance->edit($parts[2]);
             $footer = $this->getViewContent('../resources/views/layout/footer.blade.php');
             echo $footer;
             return;
         }
 
         //Actualitzar en POST
-        if ($parts[0] === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] === 'peliculas' && $parts[1] === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\FilmController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -122,10 +122,10 @@ class Route
         }
 
         //Actors (placeholder, to be implemented)
-        if ($uri === '/actors') {
+        if ($uri === '/actores') {
             $controller = 'App\Controllers\ActorController';
             $controllerInstance = new $controller();
-            $data = ['title' => 'Actors'];
+            $data = ['title' => 'Actores'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
             $content = $controllerInstance->index();
@@ -135,10 +135,10 @@ class Route
         }
 
         //create
-        if ($parts[0] == 'actors' && $parts[1] === 'create') {
+        if ($parts[0] == 'actores' && $parts[1] === 'create') {
             $controller = 'App\Controllers\ActorController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Actor '];
+            $data  = ['title' => 'Añadir actor'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
             $content = $controllerInstance->create();
@@ -148,7 +148,7 @@ class Route
         }
 
         //Utilitzant POST guardem
-        if ($parts[0] == 'actors' && $parts[1] === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] == 'actores' && $parts[1] === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\ActorController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -159,7 +159,7 @@ class Route
 
 
         //delete en GET  mirem que sigue delete en la id
-        if ($parts[0] == 'actors' && $parts[1] === 'delete' && isset($parts[2])) {
+        if ($parts[0] == 'actores' && $parts[1] === 'delete' && isset($parts[2])) {
             $controller = 'App\Controllers\ActorController';
             $controllerInstance = new $controller();
             $data  = ['title' => 'Eliminar actor'];
@@ -173,7 +173,7 @@ class Route
 
 
         //destroy en POST
-        if ($parts[0] == 'actors' && $parts[1] === 'destroy' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] == 'actores' && $parts[1] === 'destroy' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\ActorController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -182,10 +182,10 @@ class Route
 
 
         //edit en GET
-        if ($parts[0] == 'actors' && $parts[1] == 'edit' && $parts[2]) {
+        if ($parts[0] == 'actores' && $parts[1] == 'edit' && $parts[2]) {
             $controller = 'App\Controllers\ActorController';
             $controllerInstance = new $controller();
-            $data  = ['title' => 'Actor'];
+            $data  = ['title' => 'Editar actor'];
             $header = $this->getViewContent('../resources/views/layout/header.blade.php', $data);
             echo $header;
             $content = $controllerInstance->edit($parts[2]);
@@ -195,7 +195,7 @@ class Route
         }
 
         //Actualitzar en POST
-        if ($parts[0] == 'actors' && $parts[1] === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($parts[0] == 'actores' && $parts[1] === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = 'App\Controllers\ActorController';
             //creem nova instancia
             $controllerInstance = new $controller();
@@ -207,21 +207,6 @@ class Route
 
         //si no es cap dels anteriors retornem la vista 404
         return require '../resources/views/errors/404.blade.php';
-
-
-        //        //si ruta no existeix redirigim a vista d'error
-        //        if(!array_key_exists($uri, $this->routes)) {
-        //            require '../resources/views/errors/404.php';
-        //            return $this;
-        //        }
-        //
-        //        //si no troba el controlador
-        //        if (!file_exists($this->routes[$uri])) {
-        //            throw new RuntimeException("No s'ha trobat el controlador:". $this->routes[$uri]);
-        //        }
-        //
-        //        require $this->routes[$uri];
-        //        return $this;
     }
 
     private function getViewContent($path, $data = [])

@@ -35,7 +35,7 @@ class FilmController
             ];
             
             $film = Film::create($data);
-            header('Location: /films');
+            header('Location: /peliculas');
             exit();
         } catch (Exception $e) {
             error_log($e->getMessage());
@@ -71,7 +71,7 @@ class FilmController
             ];
 
             Film::update($id, $data);
-            header('Location: /films');
+            header('Location: /peliculas');
             exit();
         } catch (Exception $e) {
             error_log($e->getMessage());
@@ -97,7 +97,7 @@ class FilmController
     {
         try {
             Film::delete($id);
-            header('Location: /films');
+            header('Location: /peliculas');
             exit();
         } catch (Exception $e) {
             error_log($e->getMessage());
